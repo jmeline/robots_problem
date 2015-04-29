@@ -9,7 +9,7 @@ namespace robots
 
     class HelperRobot : Robot
     {
-        public HelperRobot()
+        public HelperRobot(EventHandler eventHandler)
         {
             System.Console.WriteLine("\t" + this.GetType().Name + " has been initialized");
 

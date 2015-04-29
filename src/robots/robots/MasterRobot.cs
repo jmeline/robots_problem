@@ -10,7 +10,6 @@ namespace robots
     {
         public MasterRobot(EventHandler eventHandler)
         {
-            eventHandler.WorkFinished += isFinished;
             System.Console.WriteLine("\t" + this.GetType().Name + " has been initialized");
         }
 
