@@ -6,19 +6,7 @@ using System.Threading.Tasks;
 
 namespace robots
 {
-    class EventHandler
-    {
-        public delegate void Action();
-        public Action WorkFinished();
-        public Action Reply();
 
-        #region Notify Work Finished
-        public void SendWorkFinished()
-        {
-            WorkFinished();
-        }
-        #endregion
-    }
     // Base class
     class Robot
     {
