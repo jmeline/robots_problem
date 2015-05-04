@@ -10,6 +10,8 @@ namespace robots
     class RobotEventArgs : EventArgs
     {
         public Robot Robot { get; set; }
+        public bool RequestHelp { get; set; }
+        public string Message { get; set; }
     }
 
     // Base class
@@ -17,16 +19,13 @@ namespace robots
     {
         public event EventHandler<RobotEventArgs> CommunicateWithOtherRobot;
         public string Name;
-        public bool WorkingState;
-        public List<string> WorkQueue;
+        public bool isWorking;
 
 
         #region Robot Constructor
         public Robot(string name)
         {
             Name = name;
-            WorkingState = false;
-            WorkQueue = new List<string>();
         }
         #endregion
 
@@ -71,16 +70,16 @@ namespace robots
 
             //}
 
-            OnHandleCommunication();
+            //OnHandleCommunication();
 
 
         }
         #endregion
 
-        protected virtual void OnHandleCommunication()
+        protected virtual void OnHandleCommunication(RobotEventArgs args)
         {
             if (CommunicateWithOtherRobot != null)
-                CommunicateWithOtherRobot(this, new RobotEventArgs() { Robot = this });
+                CommunicateWithOtherRobot(this, args);
         }
 
 
