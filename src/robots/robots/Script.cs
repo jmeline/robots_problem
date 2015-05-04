@@ -42,8 +42,17 @@ namespace robots
             System.Console.WriteLine("\n5. The application confirms with MasterRobot that it has 2 jobs working and 0 jobs queued. \n");
             Console.WriteLine(masterRobot);
 
-            //System.Console.WriteLine("\n6. The application asks the MasterRobot to do a third job. \n");
-            //masterRobot.DoWork();
+            System.Console.WriteLine("\n6. The application asks the MasterRobot to do a third job. \n");
+            masterRobot.DoWork();
+
+            Console.WriteLine("\n7. The application confirms with MasterRobot that it has 2 jobs working and 1 job queued.\n");
+            Console.WriteLine(masterRobot);
+
+            Console.WriteLine("\n8. The application asks the MasterRobot to do a fourth job. \n");
+            masterRobot.DoWork();
+
+            Console.WriteLine("\n9. The application confirms with MasterRobot that it has 2 jobs working and 2 jobs queued.\n");
+            Console.WriteLine(masterRobot);
 
         }
     }

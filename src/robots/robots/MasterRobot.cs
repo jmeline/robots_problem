@@ -24,7 +24,7 @@ namespace robots
         public override string ToString()
         {
 
-            return String.Format("{2}: I have {0} jobs working and {1} jobs queued", NumberOfJobsWorking, NumberOfJobsQueued, Name);
+            return String.Format("{2}: I have {0} job(s) working and {1} job(s) queued", NumberOfJobsWorking, NumberOfJobsQueued, Name);
         }
 
         public void OnHandleCommunication(object source, RobotEventArgs e)
@@ -37,7 +37,7 @@ namespace robots
                     e.Robot.Name + " saying " +
                     e.Message);
 
-                //NumberOfJobsQueued += 1;
+                NumberOfJobsQueued += 1;
             }
             // Handle case when HelperRobot is able to work on a task
             else if (e.Robot.isWorking)
