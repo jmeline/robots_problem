@@ -37,7 +37,6 @@ namespace robots
                 Console.WriteLine(Name + ": " + e.Robot.Name + " Just Finished Work");
             }
 
-            //base.OnHandleCommunication();
         }
 
         public override void DoWork()
@@ -74,7 +73,7 @@ namespace robots
 
         ~HelperRobot()
         {
-            //System.Console.WriteLine("Cleaning up HelperRobot");
+            System.Console.WriteLine("Cleaning up HelperRobot");
         }
 
     }

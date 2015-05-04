@@ -63,16 +63,6 @@ namespace robots
 
             }
 
-
-            // Notification if other robot is finished working
-            //if (!e.Robot.isWorking)
-            //{
-            //    Console.WriteLine(Name + ": " + e.Robot.Name + " Just Finished Work");
-            //}
-
-
-
-            //base.OnHandleCommunication();
         }
 
         public override void DoWork()
@@ -93,7 +83,6 @@ namespace robots
                 base.OnHandleCommunication(new RobotEventArgs() { Robot = this, RequestHelp = true});
             }
 
-            //base.DoWork();
         }
 
         public override void FinishWork()
@@ -110,7 +99,7 @@ namespace robots
 
         ~MasterRobot()
         {
-            //System.Console.WriteLine("Cleaning up MasterRobot");
+            System.Console.WriteLine("Cleaning up MasterRobot");
         }
 
     }

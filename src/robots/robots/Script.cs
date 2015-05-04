@@ -23,15 +23,8 @@ namespace robots
             masterRobot.CommunicateWithOtherRobot += helperRobot.OnHandleCommunication;
             helperRobot.CommunicateWithOtherRobot += masterRobot.OnHandleCommunication;
 
-            //masterRobot.FinishWork();
-            //helperRobot.FinishWork();
 
-            //Console.WriteLine("");
-
-            //masterRobot.isWorking = true;
-            //masterRobot.DoWork();
-
-            // Testing
+            // Running Script
             Debug.Assert(masterRobot.NumberOfJobsWorking == 0);
             Debug.Assert(masterRobot.NumberOfJobsQueued == 0);
 
@@ -72,7 +65,6 @@ namespace robots
 
             Debug.Assert(masterRobot.NumberOfJobsWorking == 2);
             Debug.Assert(masterRobot.NumberOfJobsQueued == 2);
-
 
             Console.WriteLine("\n10. The application tells the HelperRobot that it is finished doing its job.\n");
             helperRobot.FinishWork();

@@ -33,47 +33,18 @@ namespace robots
         #region Robot Deconstructor
         ~Robot()
         {
-            //System.Console.WriteLine("Cleaning up Robot");
+            System.Console.WriteLine("Cleaning up Robot");
         }
         #endregion
 
         #region DoWork
-        public virtual void DoWork()
-        {
-            //if (jobsWorking <= 2)
-            //{
-            //    // ask the robot to do a job
-            //    System.Console.WriteLine("\t" + this.GetType().Name + " is working on a new task");
-
-            //    // set the state of the Robot to be working
-            //    isBusyWorking = true;
-            //    jobsWorking += 1;
-            //}
-            //else
-            //{
-            //    // ask helper robot to do a job via event/delegate
-            //    System.Console.WriteLine("\tI need to ask my HelperRobot to help me");
-            //}
-        } 
+        public virtual void DoWork(){
+        }
         #endregion
 
         #region FinishWork
         public virtual void FinishWork()
         {
-            //if (this.isBusyWorking)
-            //{
-
-            //    // tell the robot to finish a job
-            //    System.Console.WriteLine(this.GetType().Name + " Finished working on a task");
-
-            //    // reset the state of the Robot
-            //    this.isBusyWorking = false;
-
-            //}
-
-            //OnHandleCommunication();
-
-
         }
         #endregion
 
