@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EventsAndDelegates
 {
-    class Program
+    public class Program
     {
         // Detegates
         //  Agreement / Contract between Publisher and Subscriber
@@ -26,7 +26,6 @@ namespace EventsAndDelegates
             // subscribe to publisher
             videoEncoder.VideoEncoded += mailService.OnVideoEncoded;
             videoEncoder.VideoEncoded += messageService.OnVideoEncoded;
-
 
             videoEncoder.Encode(video);
         }
