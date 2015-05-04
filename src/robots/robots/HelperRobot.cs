@@ -23,6 +23,7 @@ namespace robots
                 Console.WriteLine(Name + ": I am willing to help out... Busy working");
                 base.OnHandleCommunication(new RobotEventArgs() { Robot = this, Message = "" });
             }
+
             // Case where a request to help comes in but the HelperRobot is already busy
             else if (e.RequestHelp && isWorking)
             {
@@ -59,10 +60,13 @@ namespace robots
 
         public override void FinishWork()
         {
-            if (!isWorking)
+            // If the HelperRobot is working, have it finish up one task and check queue
+            if (isWorking)
             {
                 Console.WriteLine(Name + " I am finishing up work.");
                 isWorking = false;
+                base.OnHandleCommunication(new RobotEventArgs() { Robot = this, Message = "", RequestTask = true });                 
+                
             }
             base.FinishWork();
         }

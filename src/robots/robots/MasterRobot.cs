@@ -9,9 +9,9 @@ namespace robots
     class MasterRobot : Robot
     {
 
-        public List<string> WorkQueue;
-        int NumberOfJobsWorking { get; set; }
-        int NumberOfJobsQueued { get; set; }
+        List<string> WorkQueue;
+        internal int NumberOfJobsWorking { get; set; }
+        internal int NumberOfJobsQueued { get; set; }
 
         public MasterRobot(string name) : base(name)
         {
@@ -39,11 +39,28 @@ namespace robots
 
                 NumberOfJobsQueued += 1;
             }
+
             // Handle case when HelperRobot is able to work on a task
             else if (e.Robot.isWorking)
             {
                 Console.WriteLine(Name + ": Adding task from " + e.Robot.Name);
                 NumberOfJobsWorking += 1;
+            }
+
+            // Handle when HelperRobot finishes up a task
+            if (!e.Robot.isWorking && e.RequestTask)
+            {
+                Console.WriteLine(Name + ": Received a task completion from " + e.Robot.Name);
+                NumberOfJobsWorking -= 1;
+
+                // Give HelperRobot another task from Queue if available
+                if (NumberOfJobsQueued > 0)
+                {
+                    Console.WriteLine(Name + String.Format(": Giving {0} another task from the queue", e.Robot.Name));
+                    base.OnHandleCommunication(new RobotEventArgs() { Robot = this, RequestHelp = true });
+                    NumberOfJobsQueued -= 1;
+                }
+
             }
 
 
@@ -81,12 +98,13 @@ namespace robots
 
         public override void FinishWork()
         {
-            if (!isWorking)
+            if (isWorking)
             {
                 Console.WriteLine(Name + " I am finishing up work.");
                 isWorking = false;
+
+                NumberOfJobsWorking -= 1;
             }
-            base.FinishWork();
         }
 
 

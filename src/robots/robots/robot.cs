@@ -11,6 +11,7 @@ namespace robots
     {
         public Robot Robot { get; set; }
         public bool RequestHelp { get; set; }
+        public bool RequestTask { get; set; }
         public string Message { get; set; }
     }
 
