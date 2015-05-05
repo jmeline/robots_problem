@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace robots
 {
 
-    class RobotEventArgs : EventArgs
+    public class RobotEventArgs : EventArgs
     {
         public Robot Robot { get; set; }
         public bool RequestHelp { get; set; }
@@ -16,7 +16,7 @@ namespace robots
     }
 
     // Base class
-    class Robot
+    public class Robot
     {
         public event EventHandler<RobotEventArgs> CommunicateWithOtherRobot;
         public string Name;

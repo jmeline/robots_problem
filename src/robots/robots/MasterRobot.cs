@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace robots
 {
-    class MasterRobot : Robot
+    public class MasterRobot : Robot
     {
 
         List<string> WorkQueue;

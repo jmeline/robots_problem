@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace robots
 {
 
-    class HelperRobot : Robot
+    public class HelperRobot : Robot
     {
         public HelperRobot(string name) : base(name)
         {
